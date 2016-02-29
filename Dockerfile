@@ -1,16 +1,16 @@
 #
 # Small memcached docker image based on alpine linux
 #
-# http://github.com/tenstartups/alpine-memcached-docker
+# http://github.com/tenstartups/memcached-docker
 #
 
-FROM alpine:latest
+FROM tenstartups/alpine:latest
 
 MAINTAINER Marc Lennox <marc.lennox@gmail.com>
 
 # Install packages
 RUN \
-  apk --update add memcached wget && \
+  apk --update add memcached && \
   wget --no-check-certificate -O /usr/local/bin/gosu https://github.com/tianon/gosu/releases/download/1.4/gosu-amd64 && \
   chmod +x /usr/local/bin/gosu && \
   rm -rf /var/cache/apk/*

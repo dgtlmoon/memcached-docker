@@ -15,6 +15,11 @@ RUN \
   chmod +x /usr/local/bin/gosu && \
   rm -rf /var/cache/apk/*
 
+# Add group and user
+RUN \
+  addgroup memcached && \
+  adduser memcached --disabled-password
+
 RUN mkdir /data && chown memcached:memcached /data
 
 VOLUME /data
